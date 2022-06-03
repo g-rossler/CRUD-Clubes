@@ -1,0 +1,22 @@
+{
+  "name": "crud-clubes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/g-rossler/CRUD-Clubes.git"
+  },
+  "author": "Rossler Gerardo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/g-rossler/CRUD-Clubes/issues"
+  },
+  "homepage": "https://github.com/g-rossler/CRUD-Clubes#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  }
+}
