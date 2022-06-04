@@ -1,0 +1,12 @@
+
+{{#each items as |item|}}
+<div style="display: grid; grid-template-columns: 300px 300px 300px; padding: 10px;">
+  <div>{{item.name}}</div>
+  <div>{{item.area.name}}</div>
+  <div>
+    <button type="button">Ver</button>
+    <button type="button">Editar</button>
+    <button type="button">Eliminar</button>
+  </div>
+</div>
+{{/each}}
