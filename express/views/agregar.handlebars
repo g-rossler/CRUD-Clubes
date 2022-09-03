@@ -1,0 +1,61 @@
+<div>
+  <form action="/agregar" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="nombreInput" class="form-label">Nombre</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nombreInput"
+        name="nombreInput"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="fundacionInput" class="form-label">Año de fundacion</label>
+      <input
+        type="number"
+        class="form-control"
+        id="fundacionInput"
+        name="fundacionInput"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="paisInput" class="form-label">Pais</label>
+      <input type="text" class="form-control" id="paisInput" name="paisInput" />
+    </div>
+    <div class="mb-3">
+      <label for="nombreEstadioInput" class="form-label">Nombre del estadio</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nombreEstadioInput"
+        name="nombreEstadioInput"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="direccionInput" class="form-label">Direccion</label>
+      <input
+        type="text"
+        class="form-control"
+        id="direccionInput"
+        name="direccionInput"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="paginaWebInput" class="form-label">Pagina Web</label>
+      <input
+        type="text"
+        class="form-control"
+        id="paginaWebInput"
+        name="paginaWebInput"
+      />
+    </div>
+    {{#if data.mensaje}}
+      <p>{{data.mensaje}}</p>
+
+      <img src="/imagenes/{{data.nombreArchivo}}" />
+    {{/if}}
+    <label for="imagen">Imagen: </label>
+    <input type="file" name="imagen" id="imagen" />
+    <input type="submit" value="Agregar Equipo" />
+  </form>
+</div>

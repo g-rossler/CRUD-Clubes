@@ -1,16 +1,40 @@
-<div style="padding: 0;margin: auto;background-color: aliceblue;width: 90vw;height: auto;">
-    <div style="border: 1px solid black;">
-        <div style="display: flex; padding: 10px;">
-          <p>Hay {{data.cantidadEquipo}} equipos</p>
-          <button type="button" style="margin-left: 10px;">Agregar</button>
-        </div>
-        <div>
-          <div style="display: grid; grid-template-columns: 300px 300px 300px; padding: 10px;">
-            <div>Equipo</div>
-            <div>Pais</div>
-            <div>Accion</div>
-          </div>
-          {{>lista items=data.equipos}}
-        </div>
+<div
+  style="padding: 0;margin: auto;background-color: aliceblue;width: 90vw;height: auto;"
+>
+  <div style="border: 1px solid black;">
+    <div style="display: flex; padding: 10px;">
+      <p>Hay {{data.cantidadEquipo}} equipos</p>
+      <button type="button" style="margin-left: 10px;" class="btn btn-primary">
+        <a class="text-white" href="/agregar">Agregar</a>
+      </button>
     </div>
+    <div>
+      <div
+        style="display: grid; grid-template-columns: 300px 300px 300px; padding: 10px;"
+      >
+        <div>Equipo</div>
+        <div>Pais</div>
+        <div>Accion</div>
+      </div>
+      {{#each data.dataParse as |equipo|}}
+        <div
+          style="display: grid; grid-template-columns: 300px 300px 300px; padding: 10px;"
+        >
+          <div>{{equipo.name}}</div>
+          <div>{{equipo.area.name}}</div>
+          <div>
+            <button type="button" class="btn btn-primary">
+              <a class="text-white" href="/equipo/{{equipo.id}}">Ver</a>
+            </button>
+            <button type="button" class="btn btn-primary">
+              <a class="text-white" href="/editar/{{equipo.id}}">Editar</a>
+            </button>
+            <button type="button" class="btn btn-primary">
+              <a class="text-white" href="/eliminar/{{equipo.id}}">Eliminar</a>
+            </button>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
 </div>

@@ -1,0 +1,65 @@
+<div>
+  <form>
+    <div class="mb-3">
+      <label for="nombreInput" class="form-label">Nombre</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nombreInput"
+        name="nombreInput"
+        placeholder={{data.name}}
+      />
+    </div>
+    <div class="mb-3">
+      <label for="fundacionInput" class="form-label">Año de fundacion</label>
+      <input
+        type="number"
+        class="form-control"
+        id="fundacionInput"
+        name="fundacionInput"
+        placeholder={{data.founded}}
+      />
+    </div>
+    <div class="mb-3">
+      <label for="paisInput" class="form-label">Pais</label>
+      <input
+        type="text"
+        class="form-control"
+        id="paisInput"
+        name="paisInput"
+        placeholder={{data.area.name}}
+      />
+    </div>
+    <div class="mb-3">
+      <label for="nombreEstadioInput" class="form-label">Nombre del estadio</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nombreEstadioInput"
+        name="nombreEstadioInput"
+        placeholder={{data.venue}}
+      />
+    </div>
+    <div class="mb-3">
+      <label for="direccionInput" class="form-label">Direccion</label>
+      <input
+        type="text"
+        class="form-control"
+        id="direccionInput"
+        name="direccionInput"
+        placeholder={{data.address}}
+      />
+    </div>
+    <div class="mb-3">
+      <label for="paginaWebInput" class="form-label">Pagina Web</label>
+      <input
+        type="text"
+        class="form-control"
+        id="paginaWebInput"
+        name="paginaWebInput"
+        placeholder={{data.website}}
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

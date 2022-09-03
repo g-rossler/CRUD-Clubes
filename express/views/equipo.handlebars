@@ -1,0 +1,58 @@
+<div>
+  <div
+    style="border: 1px solid black;"
+    class="d-flex flex-column justify-content-center"
+  >
+    <div class="d-flex justify-content-center">
+      <img
+        src={{data.crestUrl}}
+        alt=""
+        class=""
+        style="width: 200px; height: 200px"
+      />
+    </div>
+
+    <h1 class="text-center">{{data.name}}</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Informacion</th>
+          <th scope="col">Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Nombre</th>
+          <td>{{data.shortName}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Año de fundacion</th>
+          <td>{{data.founded}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Pais</th>
+          <td>{{data.area.name}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Nombre del estadio</th>
+          <td>{{data.venue}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Direccion</th>
+          <td>{{data.address}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Pagina Web</th>
+          <td>{{data.website}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="d-flex flex-row justify-content-evenly">
+    <button class="btn btn-primary">
+      <a class="text-white" href="/equipo/{{data.id}}/editar">Editar</a>
+    </button>
+    <button class="btn btn-danger">Eliminar</button>
+    </div>
+
+  </div>
+</div>
