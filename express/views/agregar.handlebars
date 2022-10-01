@@ -1,6 +1,10 @@
 <div>
   <form action="/agregar" method="post" enctype="multipart/form-data">
     <div class="mb-3">
+      <label for="idInput" class="form-label">Id</label>
+      <input type="number" class="form-control" id="idInput" name="idInput" />
+    </div>
+    <div class="mb-3">
       <label for="nombreInput" class="form-label">Nombre</label>
       <input
         type="text"
@@ -49,13 +53,13 @@
         name="paginaWebInput"
       />
     </div>
-    {{#if data.mensaje}}
-      <p>{{data.mensaje}}</p>
-
-      <img src="/imagenes/{{data.nombreArchivo}}" />
-    {{/if}}
     <label for="imagen">Imagen: </label>
     <input type="file" name="imagen" id="imagen" />
     <input type="submit" value="Agregar Equipo" />
   </form>
+  <a class="text-white" href="/">
+    <button type="button" class="btn btn-warning">
+      Volver
+    </button>
+  </a>
 </div>

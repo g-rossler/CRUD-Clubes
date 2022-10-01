@@ -2,21 +2,27 @@
   {{#if metodo}}
     <div>
       <h1>Equipo eliminado {{data.name}}</h1>
-      <button type="button" class="btn btn-primary">
-        <a href="/">Inicio</a>
+      <a href="/">
+      <button type="button" class="btn btn-success">
+        Inicio
       </button>
+      </a>
     </div>
   {{else}}
     <h1>¿Esta seguro que quiere eliminar el equipo {{data.name}}?</h1>
 
     <div>
-      <form action="/eliminar/:id" method="post">
+      <form action="/eliminar/{{data.id}}" method="post">
+      
         <button type="submit" class="btn btn-dark">
           SI
-        </button></form>
+        </button>
+      </form>
+      <a href="/">
       <button type="button" class="btn btn-danger">
-        <a href="/">NO</a>
+        NO
       </button>
+      </a>
     </div>
 
   {{/if}}

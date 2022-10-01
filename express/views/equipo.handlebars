@@ -5,7 +5,7 @@
   >
     <div class="d-flex justify-content-center">
       <img
-        src={{data.crestUrl}}
+        src='/imagenes/{{data.crestUrl}}'
         alt=""
         class=""
         style="width: 200px; height: 200px"
@@ -23,7 +23,7 @@
       <tbody>
         <tr>
           <th scope="row">Nombre</th>
-          <td>{{data.shortName}}</td>
+          <td>{{data.name}}</td>
         </tr>
         <tr>
           <th scope="row">Año de fundacion</th>
@@ -48,15 +48,21 @@
       </tbody>
     </table>
     <div class="d-flex flex-row justify-content-evenly">
+      <a class="text-white" href="/equipo/{{data.id}}/editar">
       <button class="btn btn-primary">
-        <a class="text-white" href="/equipo/{{data.id}}/editar">Editar</a>
+        Editar
       </button>
+      </a>
+      <a class="text-white" href="/eliminar/{{data.id}}">
       <button class="btn btn-danger">
-        <a class="text-white" href="/equipo/{{data.id}}/editar">Eliminar</a>
+        Eliminar
       </button>
+      </a>
+      <a class="text-white" href="/">
       <button class="btn btn-warning">
-        <a class="text-white" href="/">Volver</a>
+        Volver
       </button>
+      </a>
     </div>
 
   </div>
