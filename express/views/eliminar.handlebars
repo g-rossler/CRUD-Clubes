@@ -1,0 +1,30 @@
+<div>
+  {{#if metodo}}
+    <div>
+      <h1>Equipo eliminado {{data.name}}</h1>
+      <a href="/">
+      <button type="button" class="btn btn-success">
+        Inicio
+      </button>
+      </a>
+    </div>
+  {{else}}
+    <h1>¿Esta seguro que quiere eliminar el equipo {{data.name}}?</h1>
+
+    <div>
+      <form action="/eliminar/{{data.id}}" method="post">
+      
+        <button type="submit" class="btn btn-dark">
+          SI
+        </button>
+      </form>
+      <a href="/">
+      <button type="button" class="btn btn-danger">
+        NO
+      </button>
+      </a>
+    </div>
+
+  {{/if}}
+
+</div>

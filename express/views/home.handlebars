@@ -4,9 +4,17 @@
   <div style="border: 1px solid black;">
     <div style="display: flex; padding: 10px;">
       <p>Hay {{data.cantidadEquipo}} equipos</p>
-      <button type="button" style="margin-left: 10px;" class="btn btn-primary">
-        <a class="text-white" href="/agregar">Agregar</a>
-      </button>
+
+      <a class="text-white" href="/agregar">
+        <button
+          type="button"
+          style="margin-left: 10px;"
+          class="btn btn-primary"
+        >
+          Agregar
+        </button>
+      </a>
+
     </div>
     <div>
       <div
@@ -23,15 +31,21 @@
           <div>{{equipo.name}}</div>
           <div>{{equipo.area.name}}</div>
           <div>
-            <button type="button" class="btn btn-primary">
-              <a class="text-white" href="/equipo/{{equipo.id}}">Ver</a>
-            </button>
-            <button type="button" class="btn btn-primary">
-              <a class="text-white" href="/editar/{{equipo.id}}">Editar</a>
-            </button>
-            <button type="button" class="btn btn-primary">
-              <a class="text-white" href="/eliminar/{{equipo.id}}">Eliminar</a>
-            </button>
+            <a class="text-white" href="/equipo/{{equipo.id}}">
+              <button type="button" class="btn btn-primary">
+                Ver
+              </button>
+            </a>
+            <a class="text-white" href="/equipo/{{equipo.id}}/editar">
+              <button type="button" class="btn btn-success">
+                Editar
+              </button>
+            </a>
+            <a class="text-white" href="/eliminar/{{equipo.id}}">
+              <button type="button" class="btn btn-danger">
+                Eliminar
+              </button>
+            </a>
           </div>
         </div>
       {{/each}}
