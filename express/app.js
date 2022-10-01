@@ -15,6 +15,9 @@ app.set("views", "./express/views");
 
 app.use(express.static(`${__dirname}/uploads`));
 
+
+
+
 app.get("/", (req, res) => {
   const equipos = fs.readFileSync("./express/data/equipos.db.json");
   const dataParse = JSON.parse(equipos);
@@ -51,6 +54,36 @@ app.get("/equipo/:id/editar", (req, res) => {
   });
 });
 
+app.post("/equipo/:id/editar",upload.single("imagen"), (req, res) => {
+  const equipoId = Number(req.params.id);
+  const equipos = fs.readFileSync("./express/data/equipos.db.json");
+  const dataParse = JSON.parse(equipos);
+  const equiposFiltrados = dataParse.filter((equipo) => equipo.id != equipoId);
+  const formulario = req.body;
+  const nuevoEquipo = {
+    id: Number(equipoId),
+    name: formulario.nombreInput,
+    founded: formulario.fundacionInput,
+    area: {
+      name: formulario.paisInput
+    },
+    venue: formulario.nombreEstadioInput,
+    address: formulario.direccionInput,
+    website: formulario.paginaWebInput,
+    crestUrl: req.file.filename
+
+  }
+  equiposFiltrados.push(nuevoEquipo)
+  const nuevaListaEquipos = JSON.stringify(equiposFiltrados)
+  
+  fs.writeFileSync("./express/data/equipos.db.json", nuevaListaEquipos);
+
+  res.render("editar", {
+    layout: "main",
+    metodo: 'delete'
+  });
+});
+
 app.get("/agregar", (req, res) => {
   res.render("agregar", {
     layout: "main",
@@ -58,11 +91,29 @@ app.get("/agregar", (req, res) => {
 });
 
 app.post("/agregar", upload.single("imagen"), (req, res) => {
-  console.log(req.body);
-  console.log(req.file);
   const formulario = req.body;
-  const equipos = fs.readFileSync("./express/data/equipos.db.json");
+  const nuevoEquipo = {
+    id: Number(formulario.idInput),
+    name: formulario.nombreInput,
+    founded: formulario.fundacionInput,
+    area: {
+      name: formulario.paisInput
+    },
+    venue: formulario.nombreEstadioInput,
+    address: formulario.direccionInput,
+    website: formulario.paginaWebInput,
+    crestUrl: req.file.filename
 
+  }
+  
+  
+  const equipos = fs.readFileSync("./express/data/equipos.db.json");
+  const dataParse = JSON.parse(equipos);
+  
+  
+  dataParse.push(nuevoEquipo)
+  const equiposString = JSON.stringify(dataParse)
+  fs.writeFileSync("./express/data/equipos.db.json", equiposString);
 
   res.render("agregar", {
     layout: "main",
@@ -75,11 +126,9 @@ app.post("/agregar", upload.single("imagen"), (req, res) => {
 
 app.get("/eliminar/:id", (req, res) => {
   const equipoID = Number(req.params.id);
-  console.log(equipoID);
   const equipos = fs.readFileSync("./express/data/equipos.db.json");
   const dataParse = JSON.parse(equipos);
   const infoEquipo = dataParse.find((equipo) => equipo.id === equipoID);
-  console.log(infoEquipo)
 
   res.render("eliminar", {
     layout: "main",
@@ -88,12 +137,20 @@ app.get("/eliminar/:id", (req, res) => {
 });
 
 
-app.post("/eliminar/:id", (req, res) => {
 
+app.post("/eliminar/:id", (req, res) => {
+  const equipoID = Number(req.params.id);
+  const equipos = fs.readFileSync("./express/data/equipos.db.json");
+  const dataParse = JSON.parse(equipos);
+  const equiposFiltrados = dataParse.filter((equipo) => equipo.id != equipoID);
+  const equiposFiltradosString = JSON.stringify(equiposFiltrados)
+  
+  fs.writeFileSync("./express/data/equipos.db.json", equiposFiltradosString);
+  
 
   res.render("eliminar", {
     layout: "main",
-    metodo: "POST"
+    metodo: "Delete"
   });
 })
 
