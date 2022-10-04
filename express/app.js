@@ -58,8 +58,14 @@ app.post("/equipo/:id/editar",upload.single("imagen"), (req, res) => {
   const equipoId = Number(req.params.id);
   const equipos = fs.readFileSync("./express/data/equipos.db.json");
   const dataParse = JSON.parse(equipos);
-  const equiposFiltrados = dataParse.filter((equipo) => equipo.id != equipoId);
+  const equipoFiltrado = dataParse.find((equipo) => equipo.id === equipoId);
   const formulario = req.body;
+  let crest = equipoFiltrado.crestUrl
+  if(req.file) {
+    crest = req.file.filename
+  } 
+
+  
   const nuevoEquipo = {
     id: Number(equipoId),
     name: formulario.nombreInput,
@@ -70,11 +76,12 @@ app.post("/equipo/:id/editar",upload.single("imagen"), (req, res) => {
     venue: formulario.nombreEstadioInput,
     address: formulario.direccionInput,
     website: formulario.paginaWebInput,
-    crestUrl: req.file.filename
+    crestUrl: crest
 
   }
-  equiposFiltrados.push(nuevoEquipo)
-  const nuevaListaEquipos = JSON.stringify(equiposFiltrados)
+  const listadoFiltrado = dataParse.filter(equipo => equipo.id != equipoId)
+  listadoFiltrado.push(nuevoEquipo)
+  const nuevaListaEquipos = JSON.stringify(listadoFiltrado)
   
   fs.writeFileSync("./express/data/equipos.db.json", nuevaListaEquipos);
 

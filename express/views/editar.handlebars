@@ -22,7 +22,7 @@
           class="form-control"
           id="nombreInput"
           name="nombreInput"
-          placeholder={{data.name}}
+          value={{data.name}}
         />
       </div>
       <div class="mb-3">
@@ -32,7 +32,7 @@
           class="form-control"
           id="fundacionInput"
           name="fundacionInput"
-          placeholder={{data.founded}}
+          value={{data.founded}}
         />
       </div>
       <div class="mb-3">
@@ -42,7 +42,7 @@
           class="form-control"
           id="paisInput"
           name="paisInput"
-          placeholder={{data.area.name}}
+          value={{data.area.name}}
         />
       </div>
       <div class="mb-3">
@@ -52,7 +52,7 @@
           class="form-control"
           id="nombreEstadioInput"
           name="nombreEstadioInput"
-          placeholder={{data.venue}}
+          value={{data.venue}}
         />
       </div>
       <div class="mb-3">
@@ -62,7 +62,7 @@
           class="form-control"
           id="direccionInput"
           name="direccionInput"
-          placeholder={{data.address}}
+          value={{data.address}}
         />
       </div>
       <div class="mb-3">
@@ -72,12 +72,12 @@
           class="form-control"
           id="paginaWebInput"
           name="paginaWebInput"
-          placeholder={{data.website}}
+          value={{data.website}}
         />
       </div>
       <div class="d-flex justify-content-center">
         <label for="imagen">Imagen: </label>
-        <input type="file" name="imagen" id="imagen" />
+        <input type="file" name="imagen" id="imagen" src='/imagenes/{{data.crestUrl}}'/>
       </div>
 
       <div>
